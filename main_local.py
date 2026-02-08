@@ -37,6 +37,7 @@ class QueryRequest(BaseModel):
 @app.post("/ask")
 async def ask_local_bot(request: QueryRequest):
     # Step A: Retrieve relevant tweet chunks from the vector DB
+    print(f"Retrieving relevant tweet chunks from the vector DB for query: {request.query}")
     docs = retriever.invoke(request.query)
 
     # Step B: Combine the retrieved chunks into a single context string
