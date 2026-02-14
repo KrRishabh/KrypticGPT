@@ -10,7 +10,7 @@ def ingest_tweets_locally():
     print('loading tweets...')
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     chunks = text_splitter.split_documents(loader.load())
-    print('tweets loaded and split into chunks')
+    print('tweets loaded and split into chunks', chunks);
     # 2. Local Embeddings (Running on your 5060 Ti)
     embeddings = OllamaEmbeddings(model="mxbai-embed-large")
     print('embeddings model loaded')
